@@ -1,0 +1,434 @@
+/*
+templateNode [shape="none", label=<
+    <table border="1" cellborder="0" cellpadding="5" cellspacing="0" >
+        <tr><td port="class" align="center" bgcolor="gray">public class Child extends Parent</td></tr>
+        <hr/>
+        <tr><td port="property" align="left">private Game game</td></tr>
+        <hr/>
+        <tr><td align="left">private void func()</td></tr>
+    </table>
+>];
+*/
+
+digraph classes {
+    startPageController [shape="none", label=<
+        <table border="1" cellborder="0" cellpadding="5" cellspacing="0" >
+            <tr><td port="class" align="center" bgcolor="gray">public class StartPageController</td></tr>
+            <hr/>
+            <tr><td port="view" align="left">private final startPageView</td></tr>
+            <hr/>
+            <tr><td port="updateView" align="left">public StartPageController()</td></tr>
+            <tr><td port="start" align="left">public void start()</td></tr>
+        </table>
+    >];
+    settingsController [shape="none", label=<
+        <table border="1" cellborder="0" cellpadding="5" cellspacing="0" >
+            <tr><td port="class" align="center" bgcolor="gray">public class SettingsController</td></tr>
+            <hr/>
+            <tr><td port="view" align="left">private final settingsView settingsView</td></tr>
+            <hr/>
+            <tr><td port="updateView" align="left">private SettingsController()</td></tr>
+            <tr><td port="updateView" align="left">private void updateView()</td></tr>
+            <tr><td port="updateModel" align="left">private void updateModel()</td></tr>
+            <tr><td port="show" align="left">public void showSettingsPage()</td></tr>
+            <tr><td port="start" align="left">public void start()</td></tr>
+        </table>
+    >];
+    gameInitController [shape="none", label=<
+        <table border="1" cellborder="0" cellpadding="5" cellspacing="0" >
+            <tr><td port="class" align="center" bgcolor="gray">public class GameInitController</td></tr>
+            <hr/>
+            <tr><td port="view" align="left">private final GameInitView gameInitView</td></tr>
+            <hr/>
+            <tr><td port="show" align="left">public GameInitController()</td></tr>
+            <tr><td port="show" align="left">public void showGameInitPage()</td></tr>
+            <tr><td port="start" align="left">public void start()</td></tr>
+        </table>
+    >];
+    gameController [shape="none", label=<
+        <table border="1" cellborder="0" cellpadding="5" cellspacing="0" >
+            <tr><td port="class" align="center" bgcolor="gray">public class GameController</td></tr>
+            <hr/>
+            <tr><td port="view" align="left">private final GameView gameView</td></tr>
+            <tr><td port="model" align="left">private final Game game</td></tr>
+            <hr/>
+            <tr><td port="show" align="left">public GameController()</td></tr>
+            <tr><td port="show" align="left">public void showGamePage()</td></tr>
+            <tr><td port="start" align="left">public void start()</td></tr>
+        </table>
+    >];
+    viewUtil [shape="none", label=<
+        <table border="1" cellborder="0" cellpadding="5" cellspacing="0" >
+            <tr><td port="class" align="center" bgcolor="gray">public class ViewUtil</td></tr>
+            <hr/>
+            <tr><td port="property" align="left">private static final double WINDOW_HEIGHT</td></tr>
+            <tr><td port="property" align="left">private static final double WINDOW_WIDTH</td></tr>
+            <tr><td port="property" align="left">private static final Scene scene</td></tr>
+            <hr/>
+            <tr><td align="left">public static void setRoot()</td></tr>
+            <tr><td align="left">public static Scene getScene()</td></tr>
+            <tr><td align="left">public static HBox addHBox(String id, Node ...nodes)</td></tr>
+            <tr><td align="left">public static VBox addVBox(String id, Node ...nodes)</td></tr>
+            <tr><td align="left">public static Separator addVSeparator()</td></tr>
+            <tr><td align="left">public static Separator addHSeparator()</td></tr>
+            <tr><td align="left">public static double getHeight()</td></tr>
+            <tr><td align="left">public static double getWidht()</td></tr>
+        </table>
+    >];
+    settings [shape="none", label=<
+        <table border="1" cellborder="0" cellpadding="5" cellspacing="0" >
+            <tr><td port="class" align="center" bgcolor="gray">public class Settings</td></tr>
+            <hr/>
+            <tr><td align="left">private static Settings INSTANCE (singleton)</td></tr>
+            <tr><td align="left">private final String path</td></tr>
+            <tr><td align="left">private boolean highlightMoves</td></tr>
+            <tr><td align="left">private boolean time</td></tr>
+            <hr/>
+            <tr><td align="left">private Settings()</td></tr>
+            <tr><td align="left">public static Settings getInstance()</td></tr>
+            <tr><td align="left">private void load()</td></tr>
+            <tr><td align="left">public void save()</td></tr>
+            <tr><td align="left">public boolean getHighlightMoves()</td></tr>
+            <tr><td align="left">public boolean getTime()</td></tr>
+            <tr><td align="left">public void setHighlightMoves(boolean value)</td></tr>
+            <tr><td align="left">public void setTime(boolean value)</td></tr>
+        </table>
+    >];
+    view [shape="none", label=<
+        <table border="1" cellborder="0" cellpadding="5" cellspacing="0" >
+            <tr><td port="class" align="center" bgcolor="gray">public abstract class View</td></tr>
+            <hr/>
+            <tr><td port="property" align="left"></td></tr>
+            <hr/>
+            <tr><td align="left">protected abstract void prepareScene()</td></tr>
+        </table>
+    >];
+    settingsView [shape="none", label=<
+        <table border="1" cellborder="0" cellpadding="5" cellspacing="0" >
+            <tr><td port="class" align="center" bgcolor="gray">public class SettingsView extends View</td></tr>
+            <hr/>
+            <tr><td port="property" align="left">private final BorderPane root</td></tr>
+            <tr><td port="property" align="left">private final Button back</td></tr>
+            <tr><td port="property" align="left">private final Button save</td></tr>
+            <tr><td port="property" align="left">private final CheckBox highlightMoves</td></tr>
+            <tr><td port="property" align="left">private final CheckBox time</td></tr>
+            <hr/>
+            <tr><td align="left">private SettingsView()</td></tr>
+            <tr><td align="left">@Override</td></tr>
+            <tr><td align="left">protected void prepareScene()</td></tr>
+            <tr><td align="left">...get() for each property</td></tr>
+        </table>
+    >];
+    startPageView [shape="none", label=<
+        <table border="1" cellborder="0" cellpadding="5" cellspacing="0" >
+            <tr><td port="class" align="center" bgcolor="gray">public class StartPageView extends View</td></tr>
+            <hr/>
+            <tr><td port="property" align="left">private final BorderPane root</td></tr>
+            <tr><td port="property" align="left">private final Button startGame</td></tr>
+            <tr><td port="property" align="left">private final Button settings</td></tr>
+            <tr><td port="property" align="left">private final Button quit</td></tr>
+            <hr/>
+            <tr><td align="left">private StartPageView()</td></tr>
+            <tr><td align="left">@Override</td></tr>
+            <tr><td align="left">protected void prepareScene()</td></tr>
+            <tr><td align="left">...get() for each property</td></tr>
+        </table>
+    >];
+    gameInitView [shape="none", label=<
+        <table border="1" cellborder="0" cellpadding="5" cellspacing="0" >
+            <tr><td port="class" align="center" bgcolor="gray">public class GameInitView extends View</td></tr>
+            <hr/>
+            <tr><td port="property" align="left">private final BorderPane root</td></tr>
+            <tr><td port="property" align="left">private final Button startGame</td></tr>
+            <tr><td port="property" align="left">private final CheckBox onePlayer</td></tr>
+            <tr><td port="property" align="left">private final RadioButton playerIsWhite</td></tr>
+            <tr><td port="property" align="left">private final RadioButton playerIsBlack</td></tr>
+            <tr><td port="property" align="left">private final ToggleGroup playerIsGroup</td></tr>
+            <tr><td port="property" align="left">private final Button back</td></tr>
+            <tr><td port="property" align="left">private final TextField event</td></tr>
+            <tr><td port="property" align="left">private final TextField place</td></tr>
+            <tr><td port="property" align="left">private final TextField whiteName</td></tr>
+            <tr><td port="property" align="left">private final TextField whiteSurname</td></tr>
+            <tr><td port="property" align="left">private final TextField blackName</td></tr>
+            <tr><td port="property" align="left">private final TextField blackSurname</td></tr>
+            <tr><td port="property" align="left">private final TogleButton customLayout</td></tr>
+            <hr/>
+            <tr><td align="left">private GameInitView()</td></tr>
+            <tr><td align="left">@Override</td></tr>
+            <tr><td align="left">protected void prepareScene()</td></tr>
+            <tr><td align="left">protected void resetPlayerOptions()</td></tr>
+            <tr><td align="left">protected void showPlayerOptions()</td></tr>
+            <tr><td align="left">protected void hidePlayerOptions()</td></tr>
+            <tr><td align="left">protected void hideWhitePlayer()</td></tr>
+            <tr><td align="left">protected void showWhitePlayer()</td></tr>
+            <tr><td align="left">protected void hideBlackPlayer()</td></tr>
+            <tr><td align="left">protected void showBlackPlayer()</td></tr>
+            <tr><td align="left">...get() for each property</td></tr>
+        </table>
+    >];
+    gameView [shape="none", label=<
+        <table border="1" cellborder="0" cellpadding="5" cellspacing="0" >
+            <tr><td port="class" align="center" bgcolor="gray">public class GameView extends View</td></tr>
+            <hr/>
+            <tr><td port="property" align="left">private final AnchorPane root</td></tr>
+            <tr><td port="property" align="left">private final GridPane chessBoard</td></tr>
+            <tr><td port="property" align="left">private final Button resign</td></tr>
+            <tr><td port="property" align="left">private final Button offerDraw</td></tr>
+            <tr><td port="property" align="left">private final Button acceptDraw</td></tr>
+            <tr><td port="property" align="left">private final double widthStep</td></tr>
+            <tr><td port="property" align="left">private final double heightStep</td></tr>
+            <hr/>
+            <tr><td align="left">private GameView()</td></tr>
+            <tr><td align="left">@Override</td></tr>
+            <tr><td align="left">protected void prepareScene()</td></tr>
+            <tr><td align="left">private void placeNode(Node node, double top, double right, double bottom, double left)</td></tr>
+            <tr><td align="left">private void prepareChessBoard()</td></tr>
+            <tr><td align="left">...get() for each property</td></tr>
+        </table>
+    >];
+    chess [shape="none", label=<
+        <table border="1" cellborder="0" cellpadding="5" cellspacing="0" >
+            <tr><td port="class" align="center" bgcolor="gray">public class Chess extends Application</td></tr>
+            <hr/>
+            <tr><td port="startPageController" align="left">public static final StartPageController startPageController</td></tr>
+            <tr><td port="settingsController" align="left">public static final SettingsController settingsController</td></tr>
+            <tr><td port="gameInitController" align="left">public static final GameInitController gameInitController</td></tr>
+            <tr><td port="gameController" align="left">public static final GameController gameController</td></tr>
+            <hr/>
+            <tr><td align="left">public static void main(String[] args)</td></tr>
+            <tr><td align="left">public void start(Stage stage) throws IOException</td></tr>
+            <tr><td align="left">private void loadStyles()</td></tr>
+        </table>
+    >];
+    game [shape="none", label=<
+        <table border="1" cellborder="0" cellpadding="5" cellspacing="0" >
+            <tr><td port="class" align="center" bgcolor="gray">public class Game</td></tr>
+            <hr/>
+            <tr><td port="board" align="left">private final Board chessboard</td></tr>
+            <hr/>
+            <tr><td align="left">public Game()</td></tr>
+        </table>
+    >];
+    board [shape="none", label=<
+        <table border="1" cellborder="0" cellpadding="5" cellspacing="0" >
+            <tr><td port="class" align="center" bgcolor="gray">public class Board </td></tr>
+            <hr/>
+            <tr><td port="pieces" align="left">private List&lt;List&lt;Move&gt;&gt; board</td></tr>
+            <hr/>
+            <tr><td align="left">public Board()</td></tr>
+        </table>
+    >];
+    pieces [shape="none", label=<
+        <table border="1" cellborder="0" cellpadding="5" cellspacing="0" >
+            <tr><td port="class" align="center" bgcolor="gray">public abstract class Piece</td></tr>
+            <hr/>
+            <tr><td port="colour" align="left">protected Colour colour</td></tr>
+            <tr><td port="moves" align="left">protected List&lt;Move&gt; moves</td></tr>
+            <tr><td port="position" align="left">protected Position position</td></tr>
+            <tr><td align="left">protected boolean isMoveScalable</td></tr>
+            <tr><td align="left">protected boolean hasDifferentTake</td></tr>
+            <hr/>
+            <tr><td align="left">public Piece(Colour colour, Position position, boolean isMoveScalable, boolean hasDifferentTake)</td></tr>
+            <tr><td align="left">protected abstract void generateMoves()</td></tr>
+            <tr><td align="left">public List&lt;Move&gt; getMoves()</td></tr>
+            <tr><td align="left">public boolean getScalability()</td></tr>
+            <tr><td align="left">public boolean getDifferentTake()</td></tr>
+            <tr><td align="left">public boolean getColour()</td></tr>
+        </table>
+    >];
+    position [shape="none", label=<
+        <table border="1" cellborder="0" cellpadding="5" cellspacing="0" >
+            <tr><td port="class" align="center" bgcolor="gray">public class Position</td></tr>
+            <hr/>
+            <tr><td port="file" align="left">private File file</td></tr>
+            <tr><td port="rank" align="left">private Rank rank</td></tr>
+            <hr/>
+            <tr><td align="left">public Position(File file, Rank rank)</td></tr>
+            <tr><td align="left">public File getFile()</td></tr>
+            <tr><td align="left">public Rank getRank()</td></tr>
+            <tr><td align="left">public void setFile(File file)</td></tr>
+            <tr><td align="left">public void setRank(Rank rank)</td></tr>
+        </table>
+    >];
+    file [shape="none", label=<
+        <table border="1" cellborder="0" cellpadding="5" cellspacing="0" >
+            <tr><td port="class" align="center" bgcolor="gray">public enum File</td></tr>
+            <hr/>
+            <tr><td align="left">A(0, "a"),</td></tr>
+            <tr><td align="left">B(1, "b"),</td></tr>
+            <tr><td align="left">C(2, "c"),</td></tr>
+            <tr><td align="left">D(3, "d"),</td></tr>
+            <tr><td align="left">E(4, "e"),</td></tr>
+            <tr><td align="left">F(5, "f"),</td></tr>
+            <tr><td align="left">G(6, "g"),</td></tr>
+            <tr><td align="left">H(7, "h");</td></tr>
+            <hr/>
+            <tr><td align="left">private final String label</td></tr>
+            <tr><td align="left">private final int value</td></tr>
+            <hr/>
+            <tr><td align="left">private File(int value, String label)</td></tr>
+            <tr><td align="left">public String getUpperCaseLabel()</td></tr>
+            <tr><td align="left">public String getLabel()</td></tr>
+            <tr><td align="left">public int getValue()</td></tr>
+        </table>
+    >];
+    rank [shape="none", label=<
+        <table border="1" cellborder="0" cellpadding="5" cellspacing="0" >
+            <tr><td port="class" align="center" bgcolor="gray">public enum Rank</td></tr>
+            <hr/>
+            <tr><td align="left">ONE(0, "1"),</td></tr>
+            <tr><td align="left">TWO(1, "2"),</td></tr>
+            <tr><td align="left">THREE(2, "3"),</td></tr>
+            <tr><td align="left">FOUR(3, "4"),</td></tr>
+            <tr><td align="left">FIVE(4, "5"),</td></tr>
+            <tr><td align="left">SIX(5, "6"),</td></tr>
+            <tr><td align="left">SEVEN(6, "7"),</td></tr>
+            <tr><td align="left">EIGHT(7, "8");</td></tr>
+            <hr/>
+            <tr><td align="left">private final String label</td></tr>
+            <tr><td align="left">private final int value</td></tr>
+            <hr/>
+            <tr><td align="left">private Rank(int value, String label)</td></tr>
+            <tr><td align="left">public String getLabel()</td></tr>
+            <tr><td align="left">public int getValue()</td></tr>
+        </table>
+    >];
+    colour [shape="none", label=<
+        <table border="1" cellborder="0" cellpadding="5" cellspacing="0" >
+            <tr><td port="class" align="center" bgcolor="gray">public enum Rank</td></tr>
+            <hr/>
+            <tr><td align="left">EMPTY,</td></tr>
+            <tr><td align="left">WHITE,</td></tr>
+            <tr><td align="left">BLACK;</td></tr>
+        </table>
+    >];
+    move [shape="none", label=<
+        <table border="1" cellborder="0" cellpadding="5" cellspacing="0" >
+            <tr><td port="class" align="center" bgcolor="gray">public enum Rank</td></tr>
+            <hr/>
+            <tr><td align="left">EMPTY(0, 0),</td></tr>
+            <tr><td align="left">NORTH(0, 1),</td></tr>
+            <tr><td align="left">NORTH_EAST(1, 1),</td></tr>
+            <tr><td align="left">EAST(1, 0),</td></tr>
+            <tr><td align="left">SOUTH_EAST(1, -1),</td></tr>
+            <tr><td align="left">SOUTH(0, -1),</td></tr>
+            <tr><td align="left">SOUTH_WEST(-1, -1),</td></tr>
+            <tr><td align="left">WEST(-1, 0),</td></tr>
+            <tr><td align="left">NORTH_WEST(-1, 1),</td></tr>
+            <tr><td align="left">DOUBLE_NORTH(0, 2),</td></tr>
+            <tr><td align="left">KNIGHT_NNW(-1, 2),</td></tr>
+            <tr><td align="left">KNIGHT_NNE(1, 2),</td></tr>
+            <tr><td align="left">KNIGHT_NEE(2, 1),</td></tr>
+            <tr><td align="left">KNIGHT_SEE(2, -1),</td></tr>
+            <tr><td align="left">KNIGHT_SSE(1, -2),</td></tr>
+            <tr><td align="left">KNIGHT_SSW(-1, -2),</td></tr>
+            <tr><td align="left">KNIGHT_SWW(-2, -1),</td></tr>
+            <tr><td align="left">KNIGHT_NWW(-2, 1);</td></tr>
+            <hr/>
+            <tr><td align="left">private final int x</td></tr>
+            <tr><td align="left">private final int y</td></tr>
+            <hr/>
+            <tr><td align="left">private Move(int x, int y)</td></tr>
+            <tr><td align="left">public int getX()</td></tr>
+            <tr><td align="left">public int getY()</td></tr>
+        </table>
+    >];
+    bishop [shape="none", label=<
+        <table border="1" cellborder="0" cellpadding="5" cellspacing="0" >
+            <tr><td port="class" align="center" bgcolor="gray">public class Bishop extends Piece</td></tr>
+            <hr/>
+            <tr><td align="left">public Bishop(Colour colour, Position position)</td></tr>
+            <tr><td align="left">@Override</td></tr>
+            <tr><td align="left">protected void generateMoves()</td></tr>
+        </table>
+    >];
+    empty [shape="none", label=<
+        <table border="1" cellborder="0" cellpadding="5" cellspacing="0" >
+            <tr><td port="class" align="center" bgcolor="gray">public class Empty extends Piece</td></tr>
+            <hr/>
+            <tr><td align="left">public Empty(Position position)</td></tr>
+            <tr><td align="left">@Override</td></tr>
+            <tr><td align="left">protected void generateMoves()</td></tr>
+        </table>
+    >];
+    king [shape="none", label=<
+        <table border="1" cellborder="0" cellpadding="5" cellspacing="0" >
+            <tr><td port="class" align="center" bgcolor="gray">public class King extends Piece</td></tr>
+            <hr/>
+            <tr><td align="left">public King(Colour colour, Position position)</td></tr>
+            <tr><td align="left">@Override</td></tr>
+            <tr><td align="left">protected void generateMoves()</td></tr>
+        </table>
+    >];
+    knight [shape="none", label=<
+        <table border="1" cellborder="0" cellpadding="5" cellspacing="0" >
+            <tr><td port="class" align="center" bgcolor="gray">public class Knight extends Piece</td></tr>
+            <hr/>
+            <tr><td align="left">public Knight(Colour colour, Position position)</td></tr>
+            <tr><td align="left">@Override</td></tr>
+            <tr><td align="left">protected void generateMoves()</td></tr>
+        </table>
+    >];
+    pawn [shape="none", label=<
+        <table border="1" cellborder="0" cellpadding="5" cellspacing="0" >
+            <tr><td port="class" align="center" bgcolor="gray">public class Pawn extends Piece</td></tr>
+            <hr/>
+            <tr><td align="left">private boolean firstMove</td></tr>
+            <tr><td align="left">private List&lt;Move&gt; takeMoves</td></tr>
+            <hr/>
+            <tr><td align="left">public Pawn(Colour colour, Position position)</td></tr>
+            <tr><td align="left">@Override</td></tr>
+            <tr><td align="left">protected void generateMoves()</td></tr>
+            <tr><td align="left">private void generateTakeMoves()</td></tr>
+            <tr><td align="left">@Override</td></tr>
+            <tr><td align="left">public List&lt;Move&gt; getMoves()</td></tr>
+            <tr><td align="left">public List&lt;Move&gt; getTakeMoves()</td></tr>
+        </table>
+    >];
+    queen [shape="none", label=<
+        <table border="1" cellborder="0" cellpadding="5" cellspacing="0" >
+            <tr><td port="class" align="center" bgcolor="gray">public class Queen extends Piece</td></tr>
+            <hr/>
+            <tr><td align="left">public Queen(Colour colour, Position position)</td></tr>
+            <tr><td align="left">@Override</td></tr>
+            <tr><td align="left">protected void generateMoves()</td></tr>
+        </table>
+    >];
+    rook [shape="none", label=<
+        <table border="1" cellborder="0" cellpadding="5" cellspacing="0" >
+            <tr><td port="class" align="center" bgcolor="gray">public class Rook extends Piece</td></tr>
+            <hr/>
+            <tr><td align="left">public Rook(Colour colour, Position position)</td></tr>
+            <tr><td align="left">@Override</td></tr>
+            <tr><td align="left">protected void generateMoves()</td></tr>
+        </table>
+    >];
+
+    chess:settingsController -> settingsController:class;
+    chess:startPageController -> startPageController:class;
+    chess:gameInitController -> gameInitController:class;
+    chess:gameController -> gameController:class;
+    startPageController:view -> startPageView:class;
+    startPageView:class -> view:class;
+    settingsController:view -> settingsView:class;
+    settingsView:class -> view:class;
+    gameInitController:view -> gameInitView:class;
+    gameInitView:class -> view:class;
+    gameController:view -> gameView:class;
+    gameView:class -> view:class;
+    gameController:model -> game:class;
+    game:board -> board:class;
+    board:pieces -> pieces:class;
+    pieces:position -> position:class;
+    position:file -> file:class;
+    position:rank -> rank:class;
+    pieces:colour -> colour:class;
+    pieces:moves -> move:class;
+    pieces:class -> bishop:class;
+    pieces:class -> empty:class;
+    pieces:class -> king:class;
+    pieces:class -> knight:class;
+    pieces:class -> pawn:class;
+    pieces:class -> queen:class;
+    pieces:class -> rook:class;
+}

@@ -1,0 +1,62 @@
+Scene, Button, Label, ToggleButton {
+    -fx-font: normal normal 10pt "monospace";
+}
+
+BorderPane {
+    -fx-padding: 20pt;
+}
+
+HBox {
+    -fx-alignment: center;
+    -fx-spacing: 10pt;
+}
+
+HBox Label {
+    -fx-label-padding: 3pt;
+    -fx-font-size: 12pt;
+    -fx-font-weight: bold;
+}
+
+VBox {
+    -fx-alignment: center;
+    -fx-spacing: 10pt;
+}
+
+Button, ToggleButton {
+    -fx-text-alignment: center;
+    -fx-label-padding: 5pt 10pt 5pt 10pt;
+}
+
+.field-name, #game-init-name-surname Label {
+    -fx-label-padding: 3pt;
+    -fx-font-size: 12pt;
+    -fx-font-weight: bold;
+}
+
+.title {
+    -fx-label-padding: 10pt;
+    -fx-font-size: 20pt;
+    -fx-font-weight: bolder;
+}
+
+.subtitle {
+    -fx-label-padding: 5pt;
+    -fx-font-size: 15pt;
+    -fx-font-weight: bold;
+}
+
+.blackCell {
+    -fx-background-color: #769656;
+}
+
+.whiteCell {
+    -fx-background-color: #eeeed2;
+}
+
+.selectedCell {
+    -fx-background-color: #baca44;
+}
+
+#browse-right HBox {
+    -fx-alignment: center-left;
+}
